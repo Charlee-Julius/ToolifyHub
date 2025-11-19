@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for, flash, sen
 from flask import send_from_directory
 
 import io
+import os
+
 import qrcode
 
 app = Flask(__name__)
@@ -151,7 +153,9 @@ def inject_globals():
 # ---------- ROUTES ---------- #
 @app.route('/ads.txt')
 def ads_txt():
-    return send_from_directory('.', 'ads.txt', mimetype='text/plain')
+    root_path = os.path.dirname(os.path.abspath(__file__))
+    return send_from_directory(root_path, 'ads.txt', mimetype='text/plain')
+
 
 @app.route("/")
 def index():
@@ -187,6 +191,21 @@ def contact():
         else:
             flash("Please fill out all fields.", "error")
     return render_template("contact.html")
+@app.route("/privacy-policy")
+def privacy_policy():
+    return render_template("privacy_policy.html")
+
+@app.route("/terms")
+def terms():
+    return render_template("terms.html")
+
+@app.route("/cookie-policy")
+def cookie_policy():
+    return render_template("cookie_policy.html")
+
+@app.route("/disclaimer")
+def disclaimer():
+    return render_template("disclaimer.html")
 
 
 # ---------- TOOL: BMI CALCULATOR ---------- #

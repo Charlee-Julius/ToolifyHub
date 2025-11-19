@@ -1,0 +1,36 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+env/
+venv/
+ENV/
+*.env
+
+# VS Code settings
+.vscode/
+.history/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Python build files
+build/
+dist/
+*.egg-info/
+
+# Flask instance folder
+instance/
+
+# Logs
+*.log
+
+# Uploaded files (if any)
+uploads/
+
+# Render build cache
+render-build/
