@@ -1,43 +1,50 @@
 {% extends "base.html" %}
+
 {% block title %}BMI Calculator – ToolifyHub{% endblock %}
+{% block meta_description %}Calculate your Body Mass Index instantly using ToolifyHub's free BMI calculator.{% endblock %}
 
 {% block content %}
+
 <h1>BMI Calculator</h1>
+<p>Enter your weight and height to calculate BMI.</p>
 
 <!-- TOP AD -->
 <ins class="adsbygoogle"
-     style="display:block; margin:15px auto;"
+     style="display:block; text-align:center; margin:20px 0;"
      data-ad-client="ca-pub-3417361456936592"
-     data-ad-slot="1111111111"
+     data-ad-slot="1234567890"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
-<form method="POST">
-    <input type="number" name="weight" placeholder="Weight (kg)" required>
-    <input type="number" name="height" placeholder="Height (cm)" required>
+<form method="post" class="tool-form">
+    <label>Weight (kg)</label>
+    <input type="number" name="weight" step="0.1" required>
+
+    <label>Height (cm)</label>
+    <input type="number" name="height" step="0.1" required>
+
     <button type="submit">Calculate BMI</button>
 </form>
 
-<!-- IN-CONTENT AD -->
-<ins class="adsbygoogle"
-     style="display:block; margin:25px auto;"
-     data-ad-client="ca-pub-3417361456936592"
-     data-ad-slot="2222222222"
-     data-ad-format="fluid"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-{% if bmi %}
-<h2>Your BMI: {{ bmi }}</h2>
+{% if result %}
+<div class="tool-result">
+    <h2>Your BMI: {{ result }}</h2>
+    <p>Category: {{ category }}</p>
+</div>
 {% endif %}
 
 <!-- BOTTOM AD -->
 <ins class="adsbygoogle"
-     style="display:block; margin:25px auto;"
+     style="display:block; text-align:center; margin:20px 0;"
      data-ad-client="ca-pub-3417361456936592"
-     data-ad-slot="3333333333"
+     data-ad-slot="9876543210"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 {% endblock %}
