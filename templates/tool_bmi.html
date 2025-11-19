@@ -1,46 +1,43 @@
-
 {% extends "base.html" %}
-
-{% block title %}BMI Calculator – Check Your Body Mass Index Online | ToolifyHub{% endblock %}
-{% block meta_description %}Free BMI Calculator. Enter your height and weight to find your Body Mass Index and health category instantly.{% endblock %}
+{% block title %}BMI Calculator – ToolifyHub{% endblock %}
 
 {% block content %}
-...
-{% endblock %}
-{% extends "base.html" %}
-{% block content %}
-<section class="tool-page">
-    <h1>BMI Calculator</h1>
-    <!-- Tool Page Top Ad -->
+<h1>BMI Calculator</h1>
+
+<!-- TOP AD -->
 <ins class="adsbygoogle"
-     style="display:block; margin:15px 0;"
-     data-ad-client="YOUR-ADSENSE-ID"
-     data-ad-slot="1234567890"
+     style="display:block; margin:15px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="1111111111"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-    <p>Enter your height and weight to calculate your Body Mass Index.</p>
+<form method="POST">
+    <input type="number" name="weight" placeholder="Weight (kg)" required>
+    <input type="number" name="height" placeholder="Height (cm)" required>
+    <button type="submit">Calculate BMI</button>
+</form>
 
-    <form method="post" class="tool-form">
-        <div class="form-row">
-            <label>Height (cm)</label>
-            <input type="number" name="height_cm" step="0.1" required>
-        </div>
-        <div class="form-row">
-            <label>Weight (kg)</label>
-            <input type="number" name="weight_kg" step="0.1" required>
-        </div>
-        <button type="submit" class="btn">Calculate</button>
-    </form>
+<!-- IN-CONTENT AD -->
+<ins class="adsbygoogle"
+     style="display:block; margin:25px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="2222222222"
+     data-ad-format="fluid"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-    {% if result is not none %}
-        <div class="tool-result">
-            <h2>Your BMI: {{ result }}</h2>
-            <p>Status: <strong>{{ status }}</strong></p>
-        </div>
-    {% endif %}
-</section>
+{% if bmi %}
+<h2>Your BMI: {{ bmi }}</h2>
+{% endif %}
+
+<!-- BOTTOM AD -->
+<ins class="adsbygoogle"
+     style="display:block; margin:25px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="3333333333"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 {% endblock %}

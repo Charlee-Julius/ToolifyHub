@@ -1,31 +1,41 @@
 {% extends "base.html" %}
+{% block title %}Tool Youtube Thumbnail – ToolifyHub{% endblock %}
 {% block content %}
-<h1>YouTube Thumbnail Downloader</h1>
+<h1>Tool Youtube Thumbnail</h1>
 
-<form method="post">
-    <input name="url" type="text" placeholder="Paste YouTube video link" required>
-    <button class="btn">Get Thumbnail</button>
-</form>
+<!-- TOP AD -->
+<ins class="adsbygoogle"
+     style="display:block; margin:15px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="1111111111"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-{% if thumbnail_url %}
-<div>
-    <h2>Thumbnail:</h2>
 
-    <!-- Show the image with fallback -->
-    <img src="{{ thumbnail_url }}"
-         onerror="this.onerror=null; this.src='{{ backup }}';"
-         width="500"
-         style="border-radius:10px;">
-
-    <!-- Download Button (uses backup if needed) -->
-    <p>
-    <a class="btn" 
-       href="/download-thumbnail?url={{ backup if backup else thumbnail_url }}">
-       Download
-    </a>
-</p>
-
+<div class="tool-container">
+    <!-- TOOL UI GOES HERE -->
 </div>
-{% endif %}
-{% endblock %}
 
+<!-- IN-CONTENT AD -->
+<ins class="adsbygoogle"
+     style="display:block; margin:25px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="2222222222"
+     data-ad-format="fluid"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+<!-- RESULTS GO HERE -->
+
+<!-- BOTTOM AD -->
+<ins class="adsbygoogle"
+     style="display:block; margin:25px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="3333333333"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+{% endblock %}
