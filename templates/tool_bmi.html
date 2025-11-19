@@ -1,50 +1,26 @@
 {% extends "base.html" %}
-
-{% block title %}BMI Calculator – ToolifyHub{% endblock %}
-{% block meta_description %}Calculate your Body Mass Index instantly using ToolifyHub's free BMI calculator.{% endblock %}
-
 {% block content %}
+<section class="tool-page">
+    <h1>BMI Calculator</h1>
+    <p>Enter your height and weight to calculate your Body Mass Index.</p>
 
-<h1>BMI Calculator</h1>
-<p>Enter your weight and height to calculate BMI.</p>
+    <form method="post" class="tool-form">
+        <div class="form-row">
+            <label>Height (cm)</label>
+            <input type="number" name="height_cm" step="0.1" required>
+        </div>
+        <div class="form-row">
+            <label>Weight (kg)</label>
+            <input type="number" name="weight_kg" step="0.1" required>
+        </div>
+        <button type="submit" class="btn">Calculate</button>
+    </form>
 
-<!-- TOP AD -->
-<ins class="adsbygoogle"
-     style="display:block; text-align:center; margin:20px 0;"
-     data-ad-client="ca-pub-3417361456936592"
-     data-ad-slot="1234567890"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-<form method="post" class="tool-form">
-    <label>Weight (kg)</label>
-    <input type="number" name="weight" step="0.1" required>
-
-    <label>Height (cm)</label>
-    <input type="number" name="height" step="0.1" required>
-
-    <button type="submit">Calculate BMI</button>
-</form>
-
-{% if result %}
-<div class="tool-result">
-    <h2>Your BMI: {{ result }}</h2>
-    <p>Category: {{ category }}</p>
-</div>
-{% endif %}
-
-<!-- BOTTOM AD -->
-<ins class="adsbygoogle"
-     style="display:block; text-align:center; margin:20px 0;"
-     data-ad-client="ca-pub-3417361456936592"
-     data-ad-slot="9876543210"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
+    {% if result is not none %}
+        <div class="tool-result">
+            <h2>Your BMI: {{ result }}</h2>
+            <p>Status: <strong>{{ status }}</strong></p>
+        </div>
+    {% endif %}
+</section>
 {% endblock %}

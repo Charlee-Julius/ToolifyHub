@@ -1,41 +1,26 @@
 {% extends "base.html" %}
-{% block title %}Tool Qr – ToolifyHub{% endblock %}
 {% block content %}
-<h1>Tool Qr</h1>
+<section class="tool-page">
+    <h1>QR Code Generator</h1>
+    <p>Enter any text or URL to generate a QR code.</p>
 
-<!-- TOP AD -->
-<ins class="adsbygoogle"
-     style="display:block; margin:15px auto;"
-     data-ad-client="ca-pub-3417361456936592"
-     data-ad-slot="1111111111"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <form method="post" class="tool-form">
+        <div class="form-row">
+            <label>Text or URL</label>
+            <input type="text" name="input_text" value="{{ input_text }}" placeholder="https://example.com" required>
+        </div>
+        <button type="submit" class="btn">Generate</button>
+    </form>
 
-
-<div class="tool-container">
-    <!-- TOOL UI GOES HERE -->
-</div>
-
-<!-- IN-CONTENT AD -->
-<ins class="adsbygoogle"
-     style="display:block; margin:25px auto;"
-     data-ad-client="ca-pub-3417361456936592"
-     data-ad-slot="2222222222"
-     data-ad-format="fluid"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-
-<!-- RESULTS GO HERE -->
-
-<!-- BOTTOM AD -->
-<ins class="adsbygoogle"
-     style="display:block; margin:25px auto;"
-     data-ad-client="ca-pub-3417361456936592"
-     data-ad-slot="3333333333"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
+    {% if qr_image %}
+        <div class="tool-result">
+            <h2>Your QR Code</h2>
+            <p>Click below to download the QR code image.</p>
+            <form method="post" action="{{ url_for('qr_download') }}">
+                <input type="hidden" name="input_text" value="{{ input_text }}">
+                <button type="submit" class="btn">Download QR Code</button>
+            </form>
+        </div>
+    {% endif %}
+</section>
 {% endblock %}
