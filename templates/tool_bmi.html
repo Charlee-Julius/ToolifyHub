@@ -1,0 +1,46 @@
+
+{% extends "base.html" %}
+
+{% block title %}BMI Calculator – Check Your Body Mass Index Online | ToolifyHub{% endblock %}
+{% block meta_description %}Free BMI Calculator. Enter your height and weight to find your Body Mass Index and health category instantly.{% endblock %}
+
+{% block content %}
+...
+{% endblock %}
+{% extends "base.html" %}
+{% block content %}
+<section class="tool-page">
+    <h1>BMI Calculator</h1>
+    <!-- Tool Page Top Ad -->
+<ins class="adsbygoogle"
+     style="display:block; margin:15px 0;"
+     data-ad-client="YOUR-ADSENSE-ID"
+     data-ad-slot="1234567890"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    <p>Enter your height and weight to calculate your Body Mass Index.</p>
+
+    <form method="post" class="tool-form">
+        <div class="form-row">
+            <label>Height (cm)</label>
+            <input type="number" name="height_cm" step="0.1" required>
+        </div>
+        <div class="form-row">
+            <label>Weight (kg)</label>
+            <input type="number" name="weight_kg" step="0.1" required>
+        </div>
+        <button type="submit" class="btn">Calculate</button>
+    </form>
+
+    {% if result is not none %}
+        <div class="tool-result">
+            <h2>Your BMI: {{ result }}</h2>
+            <p>Status: <strong>{{ status }}</strong></p>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

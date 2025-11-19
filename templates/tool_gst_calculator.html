@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>GST Calculator</h1>
+
+<form method="post">
+    <input name="amount" type="number" step="0.01" placeholder="Amount" required>
+    <input name="rate" type="number" step="0.01" placeholder="GST %" required>
+    <button class="btn">Calculate</button>
+</form>
+
+{% if final %}
+<h2>GST: ₹{{ gst }}</h2>
+<h2>Total: ₹{{ final }}</h2>
+{% endif %}
+
+{% endblock %}

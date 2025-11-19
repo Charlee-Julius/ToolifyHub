@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Free Online Tools – PDF, Image, Text & Calculators | ToolifyHub{% endblock %}
+{% block meta_description %}Use free online tools like BMI Calculator, GST Calculator, PDF to Word, Image Compressor, QR Code Generator, Unit Converter and more at ToolifyHub.{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <h1>All Your Favorite Online Tools in One Place</h1>
+    <p>Free, fast and simple tools for text, files, QR codes, calculations and more.</p>
+
+    <form method="get" action="{{ url_for('index') }}" class="search-form">
+
+        <!-- Homepage Ad -->
+        <ins class="adsbygoogle"
+             style="display:block; margin:20px 0;"
+             data-ad-client="YOUR-ADSENSE-ID"
+             data-ad-slot="1111111111"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+        <input type="text" name="q" placeholder="Search for a tool (e.g. BMI, QR, word counter)..."
+               value="{{ query or '' }}">
+        <button type="submit">Search</button>
+        <ul id="suggestions" class="suggestion-box"></ul>
+    </form>
+</section>
+
+<section class="tools-section">
+    {% if grouped_tools %}
+        {% for category, tools in grouped_tools.items() %}
+            <div class="tool-category-block">
+                <h2>{{ category }}</h2>
+
+                <div class="tool-grid">
+                    {% for tool in tools %}
+                        <article class="tool-card">
+                            <div class="tool-icon">{{ tool.icon }}</div>
+                            <h3>{{ tool.name }}</h3>
+                            <p>{{ tool.description }}</p>
+                            <a class="btn" href="{{ url_for(tool.route) }}">Open</a>
+                        </article>
+                    {% endfor %}
+                </div>
+
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No tools found for your search. Try a different keyword.</p>
+    {% endif %}
+</section>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>YouTube Thumbnail Downloader</h1>
+
+<form method="post">
+    <input name="url" type="text" placeholder="Paste YouTube video link" required>
+    <button class="btn">Get Thumbnail</button>
+</form>
+
+{% if thumbnail_url %}
+<div>
+    <h2>Thumbnail:</h2>
+
+    <!-- Show the image with fallback -->
+    <img src="{{ thumbnail_url }}"
+         onerror="this.onerror=null; this.src='{{ backup }}';"
+         width="500"
+         style="border-radius:10px;">
+
+    <!-- Download Button (uses backup if needed) -->
+    <p>
+    <a class="btn" 
+       href="/download-thumbnail?url={{ backup if backup else thumbnail_url }}">
+       Download
+    </a>
+</p>
+
+</div>
+{% endif %}
+{% endblock %}
+

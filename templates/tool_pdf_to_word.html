@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="tool-page">
+    <h1>PDF to Word Converter</h1>
+    <p>Select a PDF file to convert into an editable Word (.docx) file.</p>
+
+    <form method="post" enctype="multipart/form-data" class="tool-form">
+        <input type="file" name="pdf" accept="application/pdf" required>
+        <button class="btn">Convert</button>
+    </form>
+</section>
+{% endblock %}

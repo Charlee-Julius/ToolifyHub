@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="tool-page">
+    <h1>Simple Text Summarizer</h1>
+    <p>Paste long text and get a short summary (first few key sentences).</p>
+
+    <form method="post" class="tool-form">
+        <div class="form-row">
+            <label>Original Text</label>
+            <textarea name="text" rows="10" placeholder="Paste your long text here...">{{ original_text }}</textarea>
+        </div>
+        <button type="submit" class="btn">Summarize</button>
+    </form>
+
+    {% if summary %}
+        <div class="tool-result">
+            <h2>Summary</h2>
+            <p>{{ summary }}</p>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

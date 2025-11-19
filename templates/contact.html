@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page">
+    <h1>Contact</h1>
+    <p>Have feedback, bugs, or business enquiries? Send us a message.</p>
+
+    <form method="post" class="tool-form">
+        <div class="form-row">
+            <label>Name</label>
+            <input type="text" name="name" required>
+        </div>
+        <div class="form-row">
+            <label>Email</label>
+            <input type="email" name="email" required>
+        </div>
+        <div class="form-row">
+            <label>Message</label>
+            <textarea name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send</button>
+    </form>
+</section>
+{% endblock %}

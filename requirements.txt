@@ -1,0 +1,7 @@
+Flask
+gunicorn
+qrcode
+Pillow
+PyPDF2
+python-docx
+requests

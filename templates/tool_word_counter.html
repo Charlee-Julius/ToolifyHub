@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="tool-page">
+    <h1>Word & Character Counter</h1>
+    <p>Paste your text below to get instant word and character counts.</p>
+
+    <form method="post" class="tool-form">
+        <div class="form-row">
+            <label>Text</label>
+            <textarea name="text" rows="8" placeholder="Type or paste your text here...">{{ text }}</textarea>
+        </div>
+        <button type="submit" class="btn">Count</button>
+    </form>
+
+    {% if text %}
+        <div class="tool-result">
+            <h2>Results</h2>
+            <p><strong>Words:</strong> {{ word_count }}</p>
+            <p><strong>Characters:</strong> {{ char_count }}</p>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

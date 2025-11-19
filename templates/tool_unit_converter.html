@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Unit Converter</h1>
+
+<form method="post">
+    <input name="value" type="number" step="0.01" placeholder="Enter value" required>
+
+    <select name="unit">
+        <option value="km_m">Kilometer → Meter</option>
+        <option value="m_km">Meter → Kilometer</option>
+        <option value="cm_m">Centimeter → Meter</option>
+        <option value="m_cm">Meter → Centimeter</option>
+    </select>
+
+    <button class="btn">Convert</button>
+</form>
+
+{% if result %}
+<h2>Result: {{ result }}</h2>
+{% endif %}
+{% endblock %}
