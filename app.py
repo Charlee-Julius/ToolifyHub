@@ -147,6 +147,9 @@ def inject_globals():
 
 
 # ---------- ROUTES ---------- #
+@app.route('/ads.txt')
+def ads_txt():
+    return send_from_directory('.', 'ads.txt', mimetype='text/plain')
 
 @app.route("/")
 def index():

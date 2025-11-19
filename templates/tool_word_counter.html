@@ -1,23 +1,30 @@
 {% extends "base.html" %}
+{% block title %}Word Counter – ToolifyHub{% endblock %}
 {% block content %}
-<section class="tool-page">
-    <h1>Word & Character Counter</h1>
-    <p>Paste your text below to get instant word and character counts.</p>
 
-    <form method="post" class="tool-form">
-        <div class="form-row">
-            <label>Text</label>
-            <textarea name="text" rows="8" placeholder="Type or paste your text here...">{{ text }}</textarea>
-        </div>
-        <button type="submit" class="btn">Count</button>
-    </form>
+<h1>Word Counter</h1>
 
-    {% if text %}
-        <div class="tool-result">
-            <h2>Results</h2>
-            <p><strong>Words:</strong> {{ word_count }}</p>
-            <p><strong>Characters:</strong> {{ char_count }}</p>
-        </div>
-    {% endif %}
-</section>
+<!-- TOP AD -->
+<ins class="adsbygoogle"
+     style="display:block;margin:15px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="1111111111"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<form method="post" class="tool-container">
+    <textarea name="text" placeholder="Enter text to count" required></textarea>
+    <button class="btn">Count Words</button>
+</form>
+
+{% if words %}
+<h2>Total Words: {{ words }}</h2>
+{% endif %}
+
+<!-- BOTTOM AD -->
+<ins class="adsbygoogle"
+     style="display:block;margin:25px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="3333333333"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
 {% endblock %}

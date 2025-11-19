@@ -1,21 +1,40 @@
 {% extends "base.html" %}
+{% block title %}Unit Converter – ToolifyHub{% endblock %}
 {% block content %}
+
 <h1>Unit Converter</h1>
 
-<form method="post">
-    <input name="value" type="number" step="0.01" placeholder="Enter value" required>
+<!-- TOP AD -->
+<ins class="adsbygoogle"
+     style="display:block;margin:15px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="1111111111"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-    <select name="unit">
-        <option value="km_m">Kilometer → Meter</option>
-        <option value="m_km">Meter → Kilometer</option>
-        <option value="cm_m">Centimeter → Meter</option>
-        <option value="m_cm">Meter → Centimeter</option>
+<form method="post" class="tool-container">
+    <input type="number" name="value" placeholder="Value" required>
+    <select name="unit_from">
+        <option value="cm">cm</option>
+        <option value="m">m</option>
+        <option value="km">km</option>
     </select>
-
+    <select name="unit_to">
+        <option value="cm">cm</option>
+        <option value="m">m</option>
+        <option value="km">km</option>
+    </select>
     <button class="btn">Convert</button>
 </form>
 
 {% if result %}
-<h2>Result: {{ result }}</h2>
+<h2>Converted Value: {{ result }}</h2>
 {% endif %}
+
+<!-- BOTTOM AD -->
+<ins class="adsbygoogle"
+     style="display:block;margin:25px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="3333333333"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
 {% endblock %}

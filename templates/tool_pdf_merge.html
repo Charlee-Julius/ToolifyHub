@@ -1,8 +1,31 @@
 {% extends "base.html" %}
+{% block title %}PDF Merge – ToolifyHub{% endblock %}
 {% block content %}
+
 <h1>PDF Merge</h1>
-<form method="post" enctype="multipart/form-data">
-    <input type="file" name="pdfs" multiple accept="application/pdf">
-    <button class="btn">Merge</button>
+
+<!-- TOP AD -->
+<ins class="adsbygoogle"
+     style="display:block;margin:15px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="1111111111"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<form method="post" enctype="multipart/form-data" class="tool-container">
+    <input type="file" name="pdfs" multiple accept="application/pdf" required>
+    <button class="btn">Merge PDFs</button>
 </form>
+
+{% if merged %}
+<h2>Download Merged PDF:</h2>
+<a class="btn" href="{{ url_for('download_pdf') }}">Download</a>
+{% endif %}
+
+<!-- BOTTOM AD -->
+<ins class="adsbygoogle"
+     style="display:block;margin:25px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="3333333333"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
 {% endblock %}

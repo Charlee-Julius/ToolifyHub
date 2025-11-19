@@ -1,10 +1,33 @@
 {% extends "base.html" %}
+{% block title %}Image Compressor – ToolifyHub{% endblock %}
 {% block content %}
-<h1>Image Compressor</h1>
-<p>Select an image to compress it.</p>
 
-<form method="post" enctype="multipart/form-data">
-    <input type="file" name="image" accept="image/*" required>
-    <button class="btn" type="submit">Compress</button>
-</form>
+<h1>Image Compressor</h1>
+
+<!-- TOP AD -->
+<ins class="adsbygoogle"
+     style="display:block;margin:15px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="1111111111"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<div class="tool-container">
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button class="btn">Compress</button>
+    </form>
+</div>
+
+{% if compressed %}
+<h2>Download Compressed Image:</h2>
+<a class="btn" href="{{ url_for('download_image') }}">Download</a>
+{% endif %}
+
+<!-- BOTTOM AD -->
+<ins class="adsbygoogle"
+     style="display:block;margin:25px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="3333333333"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
 {% endblock %}

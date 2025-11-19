@@ -1,22 +1,31 @@
 {% extends "base.html" %}
+{% block title %}Text Summarizer – ToolifyHub{% endblock %}
 {% block content %}
-<section class="tool-page">
-    <h1>Simple Text Summarizer</h1>
-    <p>Paste long text and get a short summary (first few key sentences).</p>
 
-    <form method="post" class="tool-form">
-        <div class="form-row">
-            <label>Original Text</label>
-            <textarea name="text" rows="10" placeholder="Paste your long text here...">{{ original_text }}</textarea>
-        </div>
-        <button type="submit" class="btn">Summarize</button>
-    </form>
+<h1>Text Summarizer</h1>
 
-    {% if summary %}
-        <div class="tool-result">
-            <h2>Summary</h2>
-            <p>{{ summary }}</p>
-        </div>
-    {% endif %}
-</section>
+<!-- TOP AD -->
+<ins class="adsbygoogle"
+     style="display:block;margin:15px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="1111111111"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<form method="post" class="tool-container">
+    <textarea name="text" placeholder="Enter text to summarize" required></textarea>
+    <button class="btn">Summarize</button>
+</form>
+
+{% if summary %}
+<h2>Summary:</h2>
+<p>{{ summary }}</p>
+{% endif %}
+
+<!-- BOTTOM AD -->
+<ins class="adsbygoogle"
+     style="display:block;margin:25px auto;"
+     data-ad-client="ca-pub-3417361456936592"
+     data-ad-slot="3333333333"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
 {% endblock %}
