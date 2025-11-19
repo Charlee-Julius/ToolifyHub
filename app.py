@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, send_file
+from flask import send_from_directory
+
 import io
 import qrcode
 
