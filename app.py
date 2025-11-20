@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, send_file
 from flask import send_from_directory
 
+from pdf2docx import Converter
+import os
+import uuid
+
 import io
 import os
 
@@ -352,20 +356,41 @@ def image_compressor():
 from docx import Document
 import PyPDF2
 
-@app.route("/tool/pdf-to-word", methods=["GET", "POST"])
+
+
+@app.route('/tool/pdf-to-word', methods=['GET', 'POST'])
 def pdf_to_word():
-    if request.method == "POST":
-        file = request.files.get("pdf")
-        if file:
-            reader = PyPDF2.PdfReader(file)
-            doc = Document()
-            for page in reader.pages:
-                doc.add_paragraph(page.extract_text())
-            buffer = io.BytesIO()
-            doc.save(buffer)
-            buffer.seek(0)
-            return send_file(buffer, as_attachment=True, download_name="converted.docx")
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            return "No file uploaded"
+
+        file = request.files['file']
+
+        if file.filename == '':
+            return "No selected file"
+
+        # Save uploaded file
+        pdf_path = f"temp_{uuid.uuid4()}.pdf"
+        word_path = f"temp_{uuid.uuid4()}.docx"
+
+        file.save(pdf_path)
+
+        # Convert PDF → DOCX
+        try:
+            cv = Converter(pdf_path)
+            cv.convert(word_path)
+            cv.close()
+        except Exception as e:
+            return f"Conversion failed: {str(e)}"
+
+        # Delete PDF after converting
+        os.remove(pdf_path)
+
+        # Send file for download
+        return send_file(word_path, as_attachment=True, download_name="converted.docx")
+
     return render_template("tool_pdf_to_word.html")
+
 @app.route("/tool/pdf-merge", methods=["GET", "POST"])
 def pdf_merge():
     if request.method == "POST":
